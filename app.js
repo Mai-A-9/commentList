@@ -22,14 +22,9 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-    res.render("index");
-});
-
-app.get("/makecomment", async (req, res) => {
-    const comment = new Comment({ text: "Hello" });
-    await comment.save();
-    res.send(comment);
+app.get("/comments", async (req, res) => {
+    const comments = await Comment.find({});
+    res.render("index", { comments });
 });
 
 app.listen(3000, () => {
