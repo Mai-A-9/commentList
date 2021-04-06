@@ -27,6 +27,16 @@ app.get("/comments", async (req, res) => {
     res.render("index", { comments });
 });
 
+app.get("/comments/new", (req, res) => {
+    res.render("new")
+});
+
+app.post("/comments", async (req, res) => {
+    const comment = new Comment(req.body);
+    await comment.save();
+    res.redirect("/comments");
+});
+
 app.listen(3000, () => {
     console.log("Server on port 3000!");
 });
