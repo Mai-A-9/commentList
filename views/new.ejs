@@ -11,7 +11,7 @@
 <body>
     <form action="/comments" method="POST">
         <label for="text">コメントを入力してください</label><br>
-        <textarea name="text" id="text" cols="30" rows="10"></textarea>
+        <input name="text" id="text" maxlength="40">
         <button>投稿</button>
     </form>
     <a href="/comments">一覧に戻る</a>
