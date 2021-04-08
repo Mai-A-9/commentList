@@ -47,8 +47,11 @@ img{
     padding: 10px 20px;
     border-radius: 50px;
     font-weight: bold;
+	box-shadow: -3px 10px 2px rgb(75,75,75);
 }
 
-.link:hover{
-    opacity: 0.8;
+.link:active{
+	box-shadow: none;
+	position: relative;
+	top: 10px;
 }
