@@ -40,6 +40,21 @@ img{
     margin: 0 15px;
 }
 
+form{
+	display: inline;
+}
+
+button{
+	background-color: transparent;
+	padding: 0;
+	border: none;
+	vertical-align: middle;
+}
+
+.submit{
+	
+}
+
 .link{
     text-decoration: none;
     background-color: #e9c46a;

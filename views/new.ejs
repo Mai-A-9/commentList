@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>新しいコメント</title>
+    <title>ひとこと言いたい</title>
+    <link rel="stylesheet" href="/app.css">
 </head>
 
 <body>
     <form action="/comments" method="POST">
-        <label for="text">コメントを入力してください</label><br>
-        <input name="text" id="text" maxlength="22">
-        <button>投稿</button>
+        <input name="text" id="text" maxlength="22" placeholder="ひとこと">
+        <button class="submit">投稿</button>
     </form>
-    <a href="/comments">一覧に戻る</a>
+    <a href="/comments" class="link">一覧に戻る</a>
 </body>
 
 </html>

@@ -5,20 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>掲示板</title>
+    <title>みんなのひとこと</title>
     <link rel="stylesheet" href="/app.css">
 </head>
 
 <body>
-    <h1>コメント一覧</h1>
+    <h1></h1>
     <ul>
         <% for (let comment of comments){ %>
             <li>
                 <div>
                     <%= comment.text %>
                 </div>
-                <div><a href="/comments/delete"><img src="/images/trash.png" alt="delete"></a><a
-                        href="/comments/edit"><img src="/images/edit.png" alt="edit"></a></div>
+                <div>
+                    <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST"><button type="submit"><img
+                                src="/images/trash.png" alt="delete"></button></form><a
+                        href="/comments/<%= comment._id %>/edit"><img src="/images/edit.png" alt="edit"></a>
+                </div>
             </li>
             <% } %>
     </ul>
