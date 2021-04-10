@@ -1,7 +1,8 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-const Comment = require("./models/comment")
+const Comment = require("./models/comment");
+const methodOverride = require("method-override");
 
 mongoose.connect('mongodb://localhost/commentApp', {
     useNewUrlParser: true,
@@ -22,6 +23,7 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(methodOverride("_method"));
 
 app.get("/comments", async (req, res) => {
     const comments = await Comment.find({});
@@ -35,6 +37,12 @@ app.get("/comments/new", (req, res) => {
 app.post("/comments", async (req, res) => {
     const comment = new Comment(req.body);
     await comment.save();
+    res.redirect("/comments");
+});
+
+app.delete("/comments/:id", async (req, res) => {
+    const { id } = req.params;
+    await Comment.findByIdAndDelete(id);
     res.redirect("/comments");
 });
 
