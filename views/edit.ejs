@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ひとこと ~*追加*~</title>
+    <title>ひとこと ~*編集*~</title>
     <link rel="stylesheet" href="/app.css">
 </head>
 
 <body>
-    <h1>ひとことを追加する</h1>
-    <form class="new" action="/comments" method="POST">
-        <textarea name="text" id="text" maxlength="20"></textarea><br>
+    <h1>ひとことを編集する</h1>
+    <form class="new" action="/comments/<%= comment._id %>/edit?_method=PUT" method="POST">
+        <textarea name="text" id="text" maxlength="20"><%= comment.text %></textarea><br>
         <button class="submit-btn">そうしん</button><br>
     </form>
     <a href="/comments/index" class="link">一覧に戻る</a>
